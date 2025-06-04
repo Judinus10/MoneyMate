@@ -1,4 +1,4 @@
-package com.moneymate.entity;
+package com.moneymate.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
