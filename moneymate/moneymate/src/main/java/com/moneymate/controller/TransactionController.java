@@ -24,20 +24,20 @@ public class TransactionController {
     @GetMapping
     public String showTransactions(Model model) {
         Long userId = 1L; // Replace with dynamic userId when auth is ready
-        List<Transaction> transactions = transactionService.getTransactionsByUserId(userId);
-        model.addAttribute("transactions", transactions);
+        model.addAttribute("transactions", transactionService.getTransactionsByUserId(userId));
         model.addAttribute("userId", userId);
+        model.addAttribute("today", LocalDate.now()); // ✅ Add this line
         return "transactions";
     }
 
     // 🌐 Web: Add transaction via form
     @PostMapping("/add")
     public String addTransaction(@RequestParam Long userId,
-                                 @RequestParam double amount,
-                                 @RequestParam String type,
-                                 @RequestParam String category,
-                                 @RequestParam String date,
-                                 @RequestParam String description) {
+            @RequestParam double amount,
+            @RequestParam String type,
+            @RequestParam String category,
+            @RequestParam String date,
+            @RequestParam String description) {
 
         Transaction transaction = new Transaction(
                 userId,
@@ -45,8 +45,7 @@ public class TransactionController {
                 type,
                 category,
                 LocalDate.parse(date),
-                description
-        );
+                description);
         transactionService.addTransaction(transaction);
         return "redirect:/transactions";
     }
