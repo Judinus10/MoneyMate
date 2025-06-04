@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Transactions</title>
     <link rel="stylesheet" href="/css/style.css"> <!-- Optional -->
 </head>
+
 <body>
     <h1>Transactions for User [[${userId}]]</h1>
 
-    <form method="post" action="/transactions/add">
-        <input type="hidden" name="userId" th:value="${userId}" />
+    <form action="/transactions/add" method="post">
+        <input type="hidden" name="userId" value="${userId}" />
+
         <label>Amount:</label>
-        <input type="number" step="0.01" name="amount" required /><br/>
+        <input type="number" name="amount" step="0.01" required />
 
         <label>Type:</label>
-        <select name="type">
+        <select name="type" required>
             <option value="income">Income</option>
             <option value="expense">Expense</option>
-        </select><br/>
+        </select>
 
         <label>Category:</label>
-        <input type="text" name="category" required /><br/>
+        <select name="category" required>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Other">Other</option>
+        </select>
 
         <label>Date:</label>
-        <input type="date" name="date" required /><br/>
+        <input type="date" name="date" required />
 
         <label>Description:</label>
-        <input type="text" name="description" /><br/>
+        <input type="text" name="description" />
 
         <button type="submit">Add Transaction</button>
     </form>
@@ -57,4 +67,5 @@
         </tr>
     </table>
 </body>
+
 </html>
