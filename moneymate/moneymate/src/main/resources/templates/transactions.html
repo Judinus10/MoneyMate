@@ -33,7 +33,10 @@
         </select>
 
         <label>Date:</label>
-        <input type="date" name="date" th:max="${today}" required />
+        <input type="date" name="date" th:value="${now.toLocalDate()}" max="${now.toLocalDate()}" required />
+        <input type="time" name="time"
+            th:value="${now.toLocalTime().truncatedTo(T(java.time.temporal.ChronoUnit).MINUTES)}"
+            max="${now.toLocalTime().truncatedTo(T(java.time.temporal.ChronoUnit).MINUTES)}" required />
 
         <label>Description:</label>
         <input type="text" name="description" />
@@ -66,12 +69,7 @@
             </td>
         </tr>
     </table>
-    <script>
-        window.onload = function () {
-            const today = new Date().toISOString().split("T")[0];
-            document.getElementsByName("date")[0].setAttribute("max", today);
-        };
-    </script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

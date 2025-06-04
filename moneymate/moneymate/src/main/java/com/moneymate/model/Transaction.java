@@ -1,7 +1,7 @@
 package com.moneymate.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "transactions")
@@ -19,14 +19,14 @@ public class Transaction {
 
     private String category;
 
-    private LocalDate date;
+    private LocalDateTime date;
 
     private String description;
 
     // Constructors
     public Transaction() {}
 
-    public Transaction(Long userId, double amount, String type, String category, LocalDate date, String description) {
+    public Transaction(Long userId, double amount, String type, String category, LocalDateTime date, String description) {
         this.userId = userId;
         this.amount = amount;
         this.type = type;
@@ -73,11 +73,11 @@ public class Transaction {
         this.category = category;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
