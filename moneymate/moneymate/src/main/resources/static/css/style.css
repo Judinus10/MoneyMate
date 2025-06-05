@@ -1,5 +1,6 @@
 /* Reset some default styles */
 body, h1, h2, input, select, button, table {
+    align-items: center;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -26,31 +27,36 @@ form {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     max-width: 600px;
-    align-items: center; /* Center form contents horizontally */
 }
 
 .form-group {
     display: flex;
-    flex-direction: column;
-    width: 100%; /* Full width of the form */
-    max-width: 400px; /* Keep input boxes aligned neatly */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
 }
 
 label {
-    margin-bottom: 0.5rem;
-    text-align: left;
+    width: 100px;         /* Fixed width for all labels */
+    text-align: right;    /* Right-align label text */
+    font-weight: 600;
+    padding-right: 0.5rem; /* small space between label and input */
 }
 
 
 input, select {
+    width: 250px;
+    flex: 1;
     padding: 0.6rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border 0.3s;
+    flex: unset;
 }
+
 
 input:focus, select:focus {
     border-color: #7f5af0;
