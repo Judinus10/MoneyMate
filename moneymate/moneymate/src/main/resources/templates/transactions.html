@@ -10,8 +10,8 @@
 <body>
     <h1>Transactions for User [[${userId}]]</h1>
 
-    <form action="/transactions/add" method="post">
-        <input type="hidden" name="userId" value="${userId}" />
+    <form action="/add" method="post">
+        <input type="hidden" name="userId" th:value="${userId}" />
 
         <label>Amount:</label>
         <input type="number" name="amount" inputmode="decimal" required />

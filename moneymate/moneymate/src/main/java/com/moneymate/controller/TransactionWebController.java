@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Controller
-@RequestMapping("/transactions")
+@RequestMapping("/")
 public class TransactionWebController {
 
     private final TransactionService transactionService;
@@ -26,7 +26,7 @@ public class TransactionWebController {
         Long userId = 1L; // Replace with dynamic userId when auth is ready
         model.addAttribute("transactions", transactionService.getTransactionsByUserId(userId));
         model.addAttribute("userId", userId);
-        model.addAttribute("today", LocalDate.now()); 
+        model.addAttribute("today", LocalDate.now());
         model.addAttribute("now", LocalDateTime.now());
         return "transactions";
     }
@@ -54,13 +54,19 @@ public class TransactionWebController {
                 description);
 
         transactionService.addTransaction(transaction);
-        return "redirect:/transactions";
+        return "redirect:/";
+    }
+
+    @GetMapping("/add")
+    public String showAddForm(Model model) {
+        model.addAttribute("now", LocalDateTime.now());
+        return "add-transaction"; // → Thymeleaf template `add-transaction.html`
     }
 
     // Delete transaction
     @PostMapping("/delete/{id}")
     public String deleteTransaction(@PathVariable Long id) {
         transactionService.deleteTransaction(id);
-        return "redirect:/transactions";
+        return "redirect:/";
     }
 }
