@@ -5,13 +5,14 @@ import com.moneymate.service.TransactionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/transactions")
 public class TransactionWebController {
 
     private final TransactionService transactionService;
@@ -20,53 +21,68 @@ public class TransactionWebController {
         this.transactionService = transactionService;
     }
 
-    // Show transactions for a hardcoded user for now (userId = 1)
+    // Show the form page for adding transactions
     @GetMapping
-    public String showTransactions(Model model) {
-        Long userId = 1L; // Replace with dynamic userId when auth is ready
-        model.addAttribute("transactions", transactionService.getTransactionsByUserId(userId));
+    public String showForm(Model model, @RequestParam(value = "userId", required = false, defaultValue = "1") Long userId) {
         model.addAttribute("userId", userId);
-        model.addAttribute("today", LocalDate.now());
-        model.addAttribute("now", LocalDateTime.now());
-        return "transactions";
+        model.addAttribute("nowDate", LocalDate.now());
+        // Set time without seconds and nanos for input[type=time]
+        model.addAttribute("nowTime", LocalTime.now().withSecond(0).withNano(0));
+        return "transactions"; // Thymeleaf template: transactions.html (form page)
     }
 
+    // Handle POST request to add a transaction
     @PostMapping("/add")
-    public String addTransaction(@RequestParam Long userId,
+    public String addTransaction(
+            @RequestParam Long userId,
             @RequestParam double amount,
             @RequestParam String type,
             @RequestParam String category,
             @RequestParam String date,
             @RequestParam String time,
-            @RequestParam String description) {
+            @RequestParam(required = false) String description,
+            RedirectAttributes redirectAttributes) {
 
-        // Combine date and time into LocalDateTime
+        // Parse date and time
         LocalDate localDate = LocalDate.parse(date);
         LocalTime localTime = LocalTime.parse(time);
-        LocalDateTime dateTime = LocalDateTime.of(localDate, localTime);
+        var dateTime = localDate.atTime(localTime);
 
+        // Create transaction object
         Transaction transaction = new Transaction(
                 userId,
                 amount,
                 type,
                 category,
-                dateTime, // ✅ Correct type now
-                description);
+                dateTime,
+                description
+        );
 
+        // Save transaction
         transactionService.addTransaction(transaction);
-        return "redirect:/";
+
+        // Add success message (optional)
+        redirectAttributes.addFlashAttribute("message", "Transaction added successfully!");
+
+        // Redirect to list page showing all transactions for the user
+        return "redirect:/transactions/list?userId=" + userId;
     }
 
-    @GetMapping("/add")
-    public String showAddForm(Model model) {
-        model.addAttribute("now", LocalDateTime.now());
-        return "add-transaction"; // → Thymeleaf template `add-transaction.html`
+    // Show the list of transactions
+    @GetMapping("/list")
+    public String showTransactionList(Model model, @RequestParam(value = "userId", required = false, defaultValue = "1") Long userId) {
+        List<Transaction> transactions = transactionService.getTransactionsByUserId(userId);
+        model.addAttribute("transactions", transactions);
+        model.addAttribute("userId", userId);
+        return "transactions-list"; // Thymeleaf template: transactions-list.html (list page)
     }
 
-    // Delete transaction
+    // Handle deletion of a transaction
     @PostMapping("/delete/{id}")
-    public String deleteTransaction(@PathVariable Long id) {
+    public String deleteTransaction(@PathVariable Long id, @RequestParam(value = "userId", required = false, defaultValue = "1") Long userId,
+                                    RedirectAttributes redirectAttributes) {
         transactionService.deleteTransaction(id);
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("message", "Transaction deleted successfully!");
+        return "redirect:/transactions/list?userId=" + userId;
     }
 }

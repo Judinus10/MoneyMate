@@ -3,92 +3,49 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Transactions</title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- Optional -->
+    <title>Add Transaction</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>Transactions for User <span th:text="${userId}">UserID</span></h1>
+    <h1>Add Transaction for User <span th:text="${userId}">UserID</span></h1>
 
-    <form action="/add" method="post" class="transaction-form">
+    <form action="/transactions/add" method="post">
         <input type="hidden" name="userId" th:value="${userId}" />
 
-        <div class="form-group">
-            <label for="amount">Amount:</label>
-            <input type="number" name="amount" inputmode="decimal" required />
-        </div>
+        <label>Amount:</label>
+        <input type="number" name="amount" inputmode="decimal" required><br><br>
 
-        <div class="form-group">
-            <label for="type">Type:</label>
-            <select name="type" required>
-                <option value="income">Income</option>
-                <option value="expense">Expense</option>
-            </select>
-        </div>
+        <label>Type:</label>
+        <select name="type" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select><br><br>
 
-        <div class="form-group">
-            <label for="category">Category:</label>
-            <select name="category" required>
-                <option value="Food">Food</option>
-                <option value="Transport">Transport</option>
-                <option value="Health">Health</option>
-                <option value="Education">Education</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
+        <label>Category:</label>
+        <select name="category" required>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Other">Other</option>
+        </select><br><br>
 
-        <div class="form-group">
-            <label for="date">Date:</label>
-            <input type="date" name="date"
-                   th:value="${nowDate}"
-                   th:attr="max=${nowDate}" required />
-        </div>
+        <label>Date:</label>
+        <input type="date" name="date" th:value="${nowDate}" th:attr="max=${nowDate}" required><br><br>
 
-        <div class="form-group">
-            <label for="time">Time:</label>
-            <input type="time" name="time"
-                   th:value="${nowTime}"
-                   th:attr="max=${nowTime}" required />
-        </div>
+        <label>Time:</label>
+        <input type="time" name="time" th:value="${nowTime}" required><br><br>
 
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <input type="text" name="description" />
-        </div>
+        <label>Description:</label>
+        <input type="text" name="description"><br><br>
 
-        <div class="form-group">
-            <button type="submit">Add Transaction</button>
-        </div>
+        <button type="submit">Add Transaction</button>
     </form>
 
-    <h2>Transaction List</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Amount</th>
-            <th>Type</th>
-            <th>Category</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Action</th>
-        </tr>
-        <tr th:each="tx : ${transactions}">
-            <td th:text="${tx.id}">1</td>
-            <td th:text="${tx.amount}">100.00</td>
-            <td th:text="${tx.type}">income</td>
-            <td th:text="${tx.category}">Food</td>
-            <td th:text="${tx.date}">2025-06-04</td>
-            <td th:text="${tx.description}">Lunch</td>
-            <td>
-                <form method="post" th:action="@{'/transactions/delete/' + ${tx.id}}">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-    </table>
-
-    <script src="/js/script.js"></script>
+    <br>
+    <a th:href="@{/transactions/list(userId=${userId})}">View All Transactions</a>
 </body>
 
 </html>
