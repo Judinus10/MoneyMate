@@ -1,5 +1,11 @@
 /* Reset some default styles */
-body, h1, h2, input, select, button, table {
+body,
+h1,
+h2,
+input,
+select,
+button,
+table {
     align-items: center;
     margin: 0;
     padding: 0;
@@ -14,7 +20,8 @@ body {
     line-height: 1.6;
 }
 
-h1, h2 {
+h1,
+h2 {
     margin-bottom: 1rem;
     color: #2c3e50;
 }
@@ -40,14 +47,18 @@ form {
 }
 
 label {
-    width: 100px;         /* Fixed width for all labels */
-    text-align: right;    /* Right-align label text */
+    width: 100px;
+    /* Fixed width for all labels */
+    text-align: right;
+    /* Right-align label text */
     font-weight: 600;
-    padding-right: 0.5rem; /* small space between label and input */
+    padding-right: 0.5rem;
+    /* small space between label and input */
 }
 
 
-input, select {
+input,
+select {
     width: 250px;
     flex: 1;
     padding: 0.6rem;
@@ -58,24 +69,48 @@ input, select {
 }
 
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     border-color: #7f5af0;
     outline: none;
 }
 
 button {
-    padding: 0.7rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     background-color: #7f5af0;
     color: #fff;
     border: none;
-    border-radius: 8px;
-    font-weight: bold;
+    border-radius: 999px;
+    /* Fully curved */
+    font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 250px;
+    /* Resizable width based on content */
+    min-width: 120px;
+    /* Minimum width for small buttons */
+    text-align: center;
+    margin:0 auto;
 }
 
 button:hover {
     background-color: #5a3bd3;
+    transform: scale(1.02);
+    /* Slight enlarge effect */
+}
+
+button:active {
+    transform: scale(0.98);
+    /* Click-down animation */
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
 }
 
 table {
@@ -87,7 +122,8 @@ table {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
@@ -108,7 +144,12 @@ td:last-child {
         padding: 1rem;
     }
 
-    table, thead, tbody, th, td, tr {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
 
