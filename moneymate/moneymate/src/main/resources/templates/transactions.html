@@ -14,7 +14,7 @@
 
     <h1>Add Transaction for User <span th:text="${userId}">UserID</span></h1>
 
-    <form action="/transactions/add" method="post">
+    <form th:action="@{transactions/add}" method="post">
         <input type="hidden" name="userId" th:value="${userId}" />
 
         <div class="form-group">
