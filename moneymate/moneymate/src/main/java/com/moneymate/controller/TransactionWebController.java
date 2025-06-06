@@ -12,7 +12,6 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Controller
-@RequestMapping("/transactions")
 public class TransactionWebController {
 
     private final TransactionService transactionService;
@@ -22,9 +21,17 @@ public class TransactionWebController {
     }
 
     /**
+     * Redirect root ("/") to the home page (transactions form).
+     */
+    @GetMapping("/")
+    public String redirectToHome() {
+        return "redirect:/home";
+    }
+
+    /**
      * Show the form to add a new transaction.
      */
-    @GetMapping
+    @GetMapping("/transactions")
     public String showForm(
             Model model,
             @RequestParam(value = "userId", required = false, defaultValue = "1") Long userId) {
@@ -33,23 +40,61 @@ public class TransactionWebController {
         model.addAttribute("nowDate", LocalDate.now());
         model.addAttribute("nowTime", LocalTime.now().withSecond(0).withNano(0));
 
-        return "transactions"; // Returns transactions.html (form)
+        return "transactions"; // => templates/transactions.html
     }
 
     /**
      * Handle submission of the add transaction form.
      */
-    @PostMapping("/add")
-    public String addTransaction(
-            @RequestParam Long userId,
-            @RequestParam double amount,
-            @RequestParam String type,
-            @RequestParam String category,
-            @RequestParam String date,
-            @RequestParam String time,
-            @RequestParam(required = false) String description,
-            RedirectAttributes redirectAttributes) {
+    // @PostMapping("/transactions/add")
+    // public String addTransaction(
+    //         @RequestParam Long userId,
+    //         @RequestParam double amount,
+    //         @RequestParam String type,
+    //         @RequestParam String category,
+    //         @RequestParam String date,
+    //         @RequestParam String time,
+    //         @RequestParam(required = false) String description,
+    //         RedirectAttributes redirectAttributes) {
 
+    //     LocalDate localDate = LocalDate.parse(date);
+    //     LocalTime localTime = LocalTime.parse(time);
+    //     var dateTime = localDate.atTime(localTime);
+
+    //     Transaction transaction = new Transaction(
+    //             userId,
+    //             amount,
+    //             type,
+    //             category,
+    //             dateTime,
+    //             description
+    //     );
+
+    //     transactionService.addTransaction(transaction);
+    //     redirectAttributes.addFlashAttribute("message", "Transaction added successfully!");
+
+    //     return "redirect:/transactions/list?userId=" + userId;
+    // }
+    @PostMapping("/transactions/add")
+public String addTransaction(
+        @RequestParam Long userId,
+        @RequestParam double amount,
+        @RequestParam String type,
+        @RequestParam String category,
+        @RequestParam String date,
+        @RequestParam String time,
+        @RequestParam(required = false) String description,
+        RedirectAttributes redirectAttributes) {
+
+    System.out.println("userId: " + userId);
+    System.out.println("amount: " + amount);
+    System.out.println("type: " + type);
+    System.out.println("category: " + category);
+    System.out.println("date: " + date);
+    System.out.println("time: " + time);
+    System.out.println("description: " + description);
+
+    try {
         LocalDate localDate = LocalDate.parse(date);
         LocalTime localTime = LocalTime.parse(time);
         var dateTime = localDate.atTime(localTime);
@@ -66,13 +111,19 @@ public class TransactionWebController {
         transactionService.addTransaction(transaction);
         redirectAttributes.addFlashAttribute("message", "Transaction added successfully!");
 
-        return "redirect:/transactions/list?userId=" + userId;
+    } catch (Exception e) {
+        redirectAttributes.addFlashAttribute("error", "Failed to add transaction: " + e.getMessage());
+        return "redirect:/transactions";
     }
+
+    return "redirect:/transactions/list?userId=" + userId;
+}
+
 
     /**
      * Display a list of all transactions for the specified user.
      */
-    @GetMapping("/list")
+    @GetMapping("/transactions/list")
     public String showTransactionList(
             Model model,
             @RequestParam(value = "userId", required = false, defaultValue = "1") Long userId) {
@@ -81,13 +132,13 @@ public class TransactionWebController {
         model.addAttribute("transactions", transactions);
         model.addAttribute("userId", userId);
 
-        return "transactions-list"; // Returns transactions-list.html
+        return "transactions-list"; // => templates/transactions-list.html
     }
 
     /**
      * Handle deletion of a transaction.
      */
-    @PostMapping("/delete/{id}")
+    @PostMapping("/transactions/delete/{id}")
     public String deleteTransaction(
             @PathVariable Long id,
             @RequestParam(value = "userId", required = false, defaultValue = "1") Long userId,

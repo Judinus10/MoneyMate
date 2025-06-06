@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction List</title>
+</head>
+<body>
+<h1>Transactions for User <span th:text="${userId}">UserID</span></h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Category</th>
+        <th>Date & Time</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tx : ${transactions}">
+        <td th:text="${tx.id}"></td>
+        <td th:text="${tx.amount}"></td>
+        <td th:text="${tx.type}"></td>
+        <td th:text="${tx.category}"></td>
+        <td th:text="${#dates.format(tx.dateTime, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${tx.description}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

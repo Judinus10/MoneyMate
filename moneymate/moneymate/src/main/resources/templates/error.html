@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error - Page Not Found</title>
-    <link rel="stylesheet" href="error.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
-    <a href="index.html" class="back-arrow">&#8592; Back</a>
+    <a href="home.html" class="back-arrow">&#8592; Back</a>
 
     <div class="error-container">
-        <h1>404</h1>
+        <!-- <h1>404</h1>
         <h2>Oops! Page not found.</h2>
-        <p>The page you’re looking for doesn’t exist or has been moved.</p>
-        <a href="index.html">
+        <p>The page you’re looking for doesn’t exist or has been moved.</p> -->
+        <h1>Error Occurred</h1>
+        <p>Status: <span th:text="${status}">Unknown</span></p>
+        <p>Message: <span th:text="${message}">Something went wrong</span></p>
+        <p>Path: <span th:text="${path}">Unknown path</span></p>
+        <a href="/home.html">
             <button>Go to Homepage</button>
         </a>
     </div>
 </body>
+
 </html>
