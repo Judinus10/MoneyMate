@@ -8,6 +8,10 @@
 </head>
 
 <body>
+    <a href="/" class="back-arrow">
+    &#x2B05; 
+</a>
+
     <h1>Add Transaction for User <span th:text="${userId}">UserID</span></h1>
 
     <form action="/transactions/add" method="post">
@@ -23,8 +27,8 @@
             <select id="type" name="type" required>
                 <option value="EXPENSE">EXPENSE</option>
                 <option value="INCOME">INCOME</option>
-                <option value="TRANSFER">TRANSFER</option>
-                <option value="ATMWITHDRAWAL">ATM WITHDRAWAL</option>
+                <!-- <option value="TRANSFER">TRANSFER</option>
+                <option value="ATMWITHDRAWAL">ATM WITHDRAWAL</option> -->
                 <option value="CASHRECEIVED">CASH RECEIVED</option>
                 <option value="CASHBACK">CASH BACK</option>
                 <option value="REFUND">REFUND</option>
