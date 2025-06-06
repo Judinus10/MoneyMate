@@ -1,12 +1,5 @@
-/* Reset some default styles */
-body,
-h1,
-h2,
-input,
-select,
-button,
-table {
-    align-items: center;
+/* -------------------- Global Reset -------------------- */
+body, h1, h2, p, input, select, button, table, a {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,12 +14,13 @@ body {
     line-height: 1.6;
 }
 
-h1,
-h2 {
+/* -------------------- Headings -------------------- */
+h1, h2 {
     margin-bottom: 1rem;
     color: #2c3e50;
 }
 
+/* -------------------- Back Arrow -------------------- */
 .back-arrow {
     position: absolute;
     top: 20px;
@@ -36,14 +30,15 @@ h2 {
     color: #7f5af0;
     text-decoration: none;
     padding: 0.3rem 4rem;
-    border: none;
     background: transparent;
+    border: none;
 }
 
 .back-arrow:hover {
     color: #382586;
 }
 
+/* -------------------- Forms -------------------- */
 form {
     background: #fff;
     padding: 2rem;
@@ -71,35 +66,31 @@ label {
     padding-right: 0.5rem;
 }
 
-/* Chrome, Safari, Edge, Opera */
+input, select {
+    width: 250px;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Remove number spinner */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
-/* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
 }
 
-input,
-select {
-    width: 250px;
-    flex: 1;
-    padding: 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    flex: unset;
-}
-
-input:focus,
-select:focus {
+/* Focus effect */
+input:focus, select:focus {
     border-color: #7f5af0;
     outline: none;
 }
 
+/* -------------------- Buttons -------------------- */
 button {
     padding: 0.75rem 1.5rem;
     background-color: #7f5af0;
@@ -112,7 +103,6 @@ button {
     transition: background 0.3s ease, transform 0.2s ease;
     width: 250px;
     min-width: 120px;
-    text-align: center;
     margin: 0 auto;
 }
 
@@ -125,6 +115,7 @@ button:active {
     transform: scale(0.98);
 }
 
+/* Delete Button Style */
 .delete-btn {
     background-color: #e74c3c;
 }
@@ -133,6 +124,7 @@ button:active {
     background-color: #c0392b;
 }
 
+/* -------------------- Table -------------------- */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -142,8 +134,7 @@ table {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-th,
-td {
+th, td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
@@ -158,18 +149,42 @@ td:last-child {
     text-align: center;
 }
 
+/* -------------------- Error Page -------------------- */
+.error-container {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 5rem auto;
+}
+
+.error-container h1 {
+    font-size: 5rem;
+    color: #7f5af0;
+    margin-bottom: 1rem;
+}
+
+.error-container h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.error-container p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* -------------------- Responsive -------------------- */
 @media (max-width: 768px) {
     form {
         width: 100%;
         padding: 1rem;
     }
 
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
+    table, thead, tbody, th, td, tr {
         display: block;
     }
 
@@ -189,5 +204,17 @@ td:last-child {
         left: 0;
         font-weight: bold;
         text-transform: capitalize;
+    }
+
+    .error-container h1 {
+        font-size: 3.5rem;
+    }
+
+    .error-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .error-container {
+        padding: 2rem 1rem;
     }
 }
