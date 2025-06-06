@@ -31,17 +31,17 @@ h2 {
     position: absolute;
     top: 20px;
     left: 20px;
-    font-size: 2.6rem;         /* Bigger font size for thicker arrow */
-    font-weight: 900;          /* Bold weight */
+    font-size: 2.6rem;
+    font-weight: 900;
     color: #7f5af0;
     text-decoration: none;
     padding: 0.3rem 4rem;
-    border: none;              /* No border */
-    background: transparent;   /* No background circle */
+    border: none;
+    background: transparent;
 }
 
 .back-arrow:hover {
-    color: #382586;            /* Darker shade on hover */
+    color: #382586;
 }
 
 form {
@@ -66,26 +66,22 @@ form {
 
 label {
     width: 100px;
-    /* Fixed width for all labels */
     text-align: right;
-    /* Right-align label text */
     font-weight: 600;
     padding-right: 0.5rem;
-    /* small space between label and input */
 }
 
-/* For Chrome, Safari, Edge, Opera */
+/* Chrome, Safari, Edge, Opera */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* For Firefox */
+/* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
 }
-
 
 input,
 select {
@@ -97,7 +93,6 @@ select {
     font-size: 1rem;
     flex: unset;
 }
-
 
 input:focus,
 select:focus {
@@ -111,28 +106,23 @@ button {
     color: #fff;
     border: none;
     border-radius: 999px;
-    /* Fully curved */
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
     width: 250px;
-    /* Resizable width based on content */
     min-width: 120px;
-    /* Minimum width for small buttons */
     text-align: center;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 button:hover {
     background-color: #5a3bd3;
     transform: scale(1.02);
-    /* Slight enlarge effect */
 }
 
 button:active {
     transform: scale(0.98);
-    /* Click-down animation */
 }
 
 .delete-btn {
