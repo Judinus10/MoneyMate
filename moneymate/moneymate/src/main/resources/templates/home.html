@@ -1,64 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Luxury Plan Dashboard</title>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <title>Luxury Plan Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
+    <nav class="navbar">
+        <div class="logo">FinManage</div>
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Income</a></li>
+            <li><a href="#">Expenses</a></li>
+            <li><a href="#">Reports</a></li>
+        </ul>
+        <div class="user-actions">
+            <img src="avatar.png" alt="User" class="avatar">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </nav>
 
-  <!-- Welcome Section -->
-  <section class="welcome-section">
-    <h1 class="welcome-text">Welcome Back, Sarah!</h1>
-  </section>
 
-  <!-- Balance Section -->
-  <section class="balance-section">
-    <div class="balance-box">
-      <h2 class="section-title">Your Balance</h2>
-      <p class="balance-amount">$12,450.00</p>
-      <p class="balance-label">Total Balance</p>
-    </div>
-  </section>
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <h1 class="welcome-text">Welcome Back, Sarah!</h1>
+    </section>
 
-  <!-- Income and Expense Section -->
-  <section class="income-expense-section">
+    <!-- Balance Section -->
+    <section class="balance-section">
+        <div class="balance-box">
+            <h2 class="section-title">Your Balance</h2>
+            <p class="balance-amount">$12,450.00</p>
+            <p class="balance-label">Total Balance</p>
+        </div>
+    </section>
 
-    <!-- Income -->
-    <div class="card income-card">
-      <div class="card-text">
-        <h2 class="section-title">Income</h2>
-        <p class="amount income">$8,000</p>
-        <p class="subtext">This month income</p>
-      </div>
-      <img src="https://cdn-icons-png.flaticon.com/512/1963/1963927.png" alt="Money Icon" class="icon">
-    </div>
+    <!-- Income and Expense Section -->
+    <section class="income-expense-section">
 
-    <!-- Expense -->
-    <div class="card expense-card">
-      <div class="card-text">
-        <h2 class="section-title">Expenses</h2>
-        <p class="amount expense">$3,200</p>
-        <p class="subtext">This month expenses</p>
-      </div>
-      <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Expense Icon" class="icon">
-    </div>
+        <!-- Income -->
+        <div class="card income-card">
+            <div class="card-text">
+                <h2 class="section-title">Income</h2>
+                <p class="amount income">$8,000</p>
+                <p class="subtext">This month income</p>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1963/1963927.png" alt="Money Icon" class="icon">
+        </div>
 
-  </section>
+        <!-- Expense -->
+        <div class="card expense-card">
+            <div class="card-text">
+                <h2 class="section-title">Expenses</h2>
+                <p class="amount expense">$3,200</p>
+                <p class="subtext">This month expenses</p>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Expense Icon" class="icon">
+        </div>
 
-  <!-- Monthly Spending -->
-  <section class="spending-section">
-    <h2 class="section-title">Monthly Spending</h2>
-    <div class="spending-box">
-      <div class="spending-header">
-        <span class="amount expense">$3,200</span>
-        <span class="subtext">Spending This Month</span>
-      </div>
-      <div class="graph-placeholder">
-        [Graph Placeholder]
-      </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Monthly Spending -->
+    <section class="spending-section">
+        <h2 class="section-title">Monthly Spending</h2>
+        <div class="spending-box">
+            <div class="spending-header">
+                <span class="amount expense">$3,200</span>
+                <span class="subtext">Spending This Month</span>
+            </div>
+            <div class="graph-placeholder">
+                [Graph Placeholder]
+            </div>
+        </div>
+    </section>
 
 </body>
+
 </html>
