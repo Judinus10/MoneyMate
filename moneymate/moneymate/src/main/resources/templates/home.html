@@ -3,59 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <title>Luxury Plan Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body class="bg-gray-100 p-8 font-sans">
+<body>
 
   <!-- Welcome Section -->
-  <section class="mb-10">
-    <h1 class="text-4xl font-bold text-gray-800">Welcome Back, Sarah!</h1>
+  <section class="welcome-section">
+    <h1 class="welcome-text">Welcome Back, Sarah!</h1>
   </section>
 
   <!-- Balance Section -->
-  <section class="mb-10">
-    <div class="bg-white shadow-md rounded-xl p-6 max-w-sm">
-      <h2 class="text-lg font-semibold text-gray-700 mb-4">Your Balance</h2>
-      <p class="text-3xl font-bold text-center text-green-600">$12,450.00</p>
-      <p class="text-center text-gray-400 mt-2">Total Balance</p>
+  <section class="balance-section">
+    <div class="balance-box">
+      <h2 class="section-title">Your Balance</h2>
+      <p class="balance-amount">$12,450.00</p>
+      <p class="balance-label">Total Balance</p>
     </div>
   </section>
 
   <!-- Income and Expense Section -->
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+  <section class="income-expense-section">
 
     <!-- Income -->
-    <div class="bg-white shadow-md rounded-xl p-6 flex items-center justify-between">
-      <div>
-        <h2 class="text-lg font-semibold text-gray-700 mb-2">Income</h2>
-        <p class="text-2xl font-bold text-green-500">$8,000</p>
-        <p class="text-gray-400 text-sm mt-1">This month income</p>
+    <div class="card income-card">
+      <div class="card-text">
+        <h2 class="section-title">Income</h2>
+        <p class="amount income">$8,000</p>
+        <p class="subtext">This month income</p>
       </div>
-      <img src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png" alt="Income Icon" class="w-16 h-16">
+      <img src="https://cdn-icons-png.flaticon.com/512/1963/1963927.png" alt="Money Icon" class="icon">
     </div>
 
-    <!-- Expenses -->
-    <div class="bg-white shadow-md rounded-xl p-6 flex items-center justify-between">
-      <div>
-        <h2 class="text-lg font-semibold text-gray-700 mb-2">Expenses</h2>
-        <p class="text-2xl font-bold text-red-500">$3,200</p>
-        <p class="text-gray-400 text-sm mt-1">This month expenses</p>
+    <!-- Expense -->
+    <div class="card expense-card">
+      <div class="card-text">
+        <h2 class="section-title">Expenses</h2>
+        <p class="amount expense">$3,200</p>
+        <p class="subtext">This month expenses</p>
       </div>
-      <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Expenses Icon" class="w-16 h-16">
+      <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Expense Icon" class="icon">
     </div>
 
   </section>
 
-  <!-- Monthly Spending Graph -->
-  <section>
-    <h2 class="text-lg font-semibold text-gray-700 mb-4">Monthly Spending</h2>
-    <div class="bg-white shadow-md rounded-xl p-6">
-      <div class="flex justify-between items-center mb-4">
-        <span class="text-2xl font-bold text-red-600">$3,200</span>
-        <span class="text-gray-400 text-sm">Spending This Month</span>
+  <!-- Monthly Spending -->
+  <section class="spending-section">
+    <h2 class="section-title">Monthly Spending</h2>
+    <div class="spending-box">
+      <div class="spending-header">
+        <span class="amount expense">$3,200</span>
+        <span class="subtext">Spending This Month</span>
       </div>
-      <!-- Placeholder for Graph -->
-      <div class="h-48 bg-gray-200 flex items-center justify-center rounded-md text-gray-500">
+      <div class="graph-placeholder">
         [Graph Placeholder]
       </div>
     </div>

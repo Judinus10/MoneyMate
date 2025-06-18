@@ -4,7 +4,6 @@ body, h1, h2, p, input, select, button, table, a {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
-    text-align: center;
 }
 
 body {
@@ -18,6 +17,7 @@ body {
 h1, h2 {
     margin-bottom: 1rem;
     color: #2c3e50;
+    text-align: center;
 }
 
 /* -------------------- Back Arrow -------------------- */
@@ -36,6 +36,118 @@ h1, h2 {
 
 .back-arrow:hover {
     color: #382586;
+}
+
+/* -------------------- Welcome Section -------------------- */
+.welcome-section {
+    margin-bottom: 2.5rem;
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    text-align: left;
+}
+
+/* -------------------- Balance Section -------------------- */
+.balance-section {
+    margin-bottom: 2.5rem;
+}
+
+.balance-box {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    text-align: center;
+}
+
+.balance-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #10b981;
+}
+
+.balance-label {
+    color: #9ca3af;
+    margin-top: 0.5rem;
+}
+
+/* -------------------- Income & Expense Section -------------------- */
+.income-expense-section {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    min-width: 280px;
+}
+
+.card-text .amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.3rem 0;
+}
+
+.income {
+    color: #10b981;
+}
+
+.expense {
+    color: #ef4444;
+}
+
+.subtext {
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+}
+
+/* -------------------- Monthly Spending -------------------- */
+.spending-section {
+    margin-bottom: 2.5rem;
+}
+
+.spending-box {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.spending-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.graph-placeholder {
+    height: 200px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 1rem;
+    font-style: italic;
 }
 
 /* -------------------- Forms -------------------- */
@@ -74,17 +186,16 @@ input, select {
     font-size: 1rem;
 }
 
-/* Remove number spinner */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type=number] {
     -moz-appearance: textfield;
 }
 
-/* Focus effect */
 input:focus, select:focus {
     border-color: #7f5af0;
     outline: none;
@@ -115,7 +226,6 @@ button:active {
     transform: scale(0.98);
 }
 
-/* Delete Button Style */
 .delete-btn {
     background-color: #e74c3c;
 }
@@ -179,6 +289,25 @@ td:last-child {
 
 /* -------------------- Responsive -------------------- */
 @media (max-width: 768px) {
+    .welcome-text {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .income-expense-section {
+        flex-direction: column;
+    }
+
+    .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-text {
+        margin-bottom: 1rem;
+    }
+
     form {
         width: 100%;
         padding: 1rem;
