@@ -1,5 +1,13 @@
 /* -------------------- Global Reset -------------------- */
-body, h1, h2, p, input, select, button, table, a {
+body,
+h1,
+h2,
+p,
+input,
+select,
+button,
+table,
+a {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,8 +21,43 @@ body {
     line-height: 1.6;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #7f5af0;
+}
+
+.avatar {
+    width: 40px;
+    border-radius: 50%;
+}
+
+
 /* -------------------- Headings -------------------- */
-h1, h2 {
+h1,
+h2 {
     margin-bottom: 1rem;
     color: #2c3e50;
     text-align: center;
@@ -178,7 +221,8 @@ label {
     padding-right: 0.5rem;
 }
 
-input, select {
+input,
+select {
     width: 250px;
     padding: 0.6rem;
     border: 1px solid #ccc;
@@ -196,7 +240,8 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     border-color: #7f5af0;
     outline: none;
 }
@@ -244,7 +289,8 @@ table {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
@@ -289,6 +335,55 @@ td:last-child {
 
 /* -------------------- Responsive -------------------- */
 @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.75rem;
+        width: 100%;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+        background-color: #f0f0f0;
+    }
+
+    .user-actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    .avatar {
+        width: 36px;
+    }
+
+    .logout-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
     .welcome-text {
         font-size: 2rem;
         text-align: center;
@@ -313,7 +408,12 @@ td:last-child {
         padding: 1rem;
     }
 
-    table, thead, tbody, th, td, tr {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
 
