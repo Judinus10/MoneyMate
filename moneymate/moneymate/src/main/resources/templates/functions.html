@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MoneyMate - Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <h1>Welcome to MoneyMate 💰</h1>
+    <p>Track your income, expenses, and manage your finances with ease.</p>
+
+    <form th:action="@{/transactions}" method="get">
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="number" name="userId" id="userId" placeholder="Enter your user ID" required>
+        </div>
+        <button type="submit">Add Transaction</button>
+    </form>
+
+    <form th:action="@{/transactions/list}" method="get">
+        <div class="form-group">
+            <label for="userIdList">User ID:</label>
+            <input type="number" name="userId" id="userIdList" placeholder="Enter your user ID" required>
+        </div>
+        <button type="submit">View Transactions</button>
+    </form>
+
+</body>
+</html>
