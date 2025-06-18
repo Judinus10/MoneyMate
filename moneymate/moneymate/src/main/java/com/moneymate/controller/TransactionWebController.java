@@ -116,7 +116,7 @@ public class TransactionWebController {
             return "redirect:/transactions";
         }
 
-        return "redirect:/transactions/list?userId=" + userId;
+        return "redirect:/transactions?userId=" + userId;
     }
 
     /**
