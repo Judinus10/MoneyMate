@@ -9,8 +9,8 @@
 
 <body>
     <a href="/" class="back-arrow">
-    &#x2B05; 
-</a>
+        &#x2B05;
+    </a>
 
     <h1>Add Transaction for User <span th:text="${userId}">UserID</span></h1>
 
@@ -64,6 +64,17 @@
         </div>
 
         <button type="submit">Add Transaction</button>
+
+        <!-- Show success message -->
+        <div th:if="${message}" style="color: green;">
+            <p th:text="${message}"></p>
+        </div>
+
+        <!-- Show error message -->
+        <div th:if="${error}" style="color: red;">
+            <p th:text="${error}"></p>
+        </div>
+
     </form>
 </body>
 

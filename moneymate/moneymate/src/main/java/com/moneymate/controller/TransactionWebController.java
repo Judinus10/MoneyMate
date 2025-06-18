@@ -87,14 +87,6 @@ public class TransactionWebController {
             @RequestParam(required = false) String description,
             RedirectAttributes redirectAttributes) {
 
-        System.out.println("userId: " + userId);
-        System.out.println("amount: " + amount);
-        System.out.println("type: " + type);
-        System.out.println("category: " + category);
-        System.out.println("date: " + date);
-        System.out.println("time: " + time);
-        System.out.println("description: " + description);
-
         try {
             LocalDate localDate = LocalDate.parse(date);
             LocalTime localTime = LocalTime.parse(time);
