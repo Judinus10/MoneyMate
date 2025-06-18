@@ -36,4 +36,15 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
+// Power button toggle
+const powerBtn = document.getElementById('powerToggle');
+let isOn = false;
 
+powerBtn.addEventListener('click', () => {
+  isOn = !isOn;
+  powerBtn.classList.toggle('on', isOn);
+  powerBtn.classList.toggle('off', !isOn);
+});
+
+// Set default state
+powerBtn.classList.add('off');
