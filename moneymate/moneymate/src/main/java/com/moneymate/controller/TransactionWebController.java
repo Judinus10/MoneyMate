@@ -131,7 +131,7 @@ public class TransactionWebController {
         model.addAttribute("transactions", transactions);
         model.addAttribute("userId", userId);
 
-        return "transactions/list"; // Make sure the file is located at templates/transactions-list.html
+        return "transactions-list"; // Make sure the file is located at templates/transactions-list.html
     }
 
     /**
