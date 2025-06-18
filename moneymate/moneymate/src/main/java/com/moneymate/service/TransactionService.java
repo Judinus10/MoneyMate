@@ -44,8 +44,11 @@ public class TransactionService {
 
     // Get all transactions for a user
     public List<Transaction> getTransactionsByUserId(Long userId) {
-        return transactionRepository.findByUserId(userId);
-    }
+    List<Transaction> list = transactionRepository.findByUserId(userId);
+    System.out.println("Inside service - transactions count: " + list.size());
+    return list;
+}
+
 
     // Get one transaction
     public Optional<Transaction> getTransactionById(Long id) {
