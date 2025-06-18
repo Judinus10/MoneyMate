@@ -23,9 +23,9 @@ public class TransactionWebController {
     /**
      * Redirect root ("/") to the home page (transactions form).
      */
-    @GetMapping("/")
-    public String redirectToHome() {
-        return "redirect:/home";
+    @GetMapping({ "/", "/home" })
+    public String home() {
+        return "home"; // looks for templates/home.html
     }
 
     /**
@@ -48,77 +48,76 @@ public class TransactionWebController {
      */
     // @PostMapping("/transactions/add")
     // public String addTransaction(
-    //         @RequestParam Long userId,
-    //         @RequestParam double amount,
-    //         @RequestParam String type,
-    //         @RequestParam String category,
-    //         @RequestParam String date,
-    //         @RequestParam String time,
-    //         @RequestParam(required = false) String description,
-    //         RedirectAttributes redirectAttributes) {
+    // @RequestParam Long userId,
+    // @RequestParam double amount,
+    // @RequestParam String type,
+    // @RequestParam String category,
+    // @RequestParam String date,
+    // @RequestParam String time,
+    // @RequestParam(required = false) String description,
+    // RedirectAttributes redirectAttributes) {
 
-    //     LocalDate localDate = LocalDate.parse(date);
-    //     LocalTime localTime = LocalTime.parse(time);
-    //     var dateTime = localDate.atTime(localTime);
+    // LocalDate localDate = LocalDate.parse(date);
+    // LocalTime localTime = LocalTime.parse(time);
+    // var dateTime = localDate.atTime(localTime);
 
-    //     Transaction transaction = new Transaction(
-    //             userId,
-    //             amount,
-    //             type,
-    //             category,
-    //             dateTime,
-    //             description
-    //     );
+    // Transaction transaction = new Transaction(
+    // userId,
+    // amount,
+    // type,
+    // category,
+    // dateTime,
+    // description
+    // );
 
-    //     transactionService.addTransaction(transaction);
-    //     redirectAttributes.addFlashAttribute("message", "Transaction added successfully!");
+    // transactionService.addTransaction(transaction);
+    // redirectAttributes.addFlashAttribute("message", "Transaction added
+    // successfully!");
 
-    //     return "redirect:/transactions/list?userId=" + userId;
+    // return "redirect:/transactions/list?userId=" + userId;
     // }
     @PostMapping("/transactions/add")
-public String addTransaction(
-        @RequestParam Long userId,
-        @RequestParam double amount,
-        @RequestParam String type,
-        @RequestParam String category,
-        @RequestParam String date,
-        @RequestParam String time,
-        @RequestParam(required = false) String description,
-        RedirectAttributes redirectAttributes) {
+    public String addTransaction(
+            @RequestParam Long userId,
+            @RequestParam double amount,
+            @RequestParam String type,
+            @RequestParam String category,
+            @RequestParam String date,
+            @RequestParam String time,
+            @RequestParam(required = false) String description,
+            RedirectAttributes redirectAttributes) {
 
-    System.out.println("userId: " + userId);
-    System.out.println("amount: " + amount);
-    System.out.println("type: " + type);
-    System.out.println("category: " + category);
-    System.out.println("date: " + date);
-    System.out.println("time: " + time);
-    System.out.println("description: " + description);
+        System.out.println("userId: " + userId);
+        System.out.println("amount: " + amount);
+        System.out.println("type: " + type);
+        System.out.println("category: " + category);
+        System.out.println("date: " + date);
+        System.out.println("time: " + time);
+        System.out.println("description: " + description);
 
-    try {
-        LocalDate localDate = LocalDate.parse(date);
-        LocalTime localTime = LocalTime.parse(time);
-        var dateTime = localDate.atTime(localTime);
+        try {
+            LocalDate localDate = LocalDate.parse(date);
+            LocalTime localTime = LocalTime.parse(time);
+            var dateTime = localDate.atTime(localTime);
 
-        Transaction transaction = new Transaction(
-                userId,
-                amount,
-                type,
-                category,
-                dateTime,
-                description
-        );
+            Transaction transaction = new Transaction(
+                    userId,
+                    amount,
+                    type,
+                    category,
+                    dateTime,
+                    description);
 
-        transactionService.addTransaction(transaction);
-        redirectAttributes.addFlashAttribute("message", "Transaction added successfully!");
+            transactionService.addTransaction(transaction);
+            redirectAttributes.addFlashAttribute("message", "Transaction added successfully!");
 
-    } catch (Exception e) {
-        redirectAttributes.addFlashAttribute("error", "Failed to add transaction: " + e.getMessage());
-        return "redirect:/transactions";
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Failed to add transaction: " + e.getMessage());
+            return "redirect:/transactions";
+        }
+
+        return "redirect:/transactions/list?userId=" + userId;
     }
-
-    return "redirect:/transactions/list?userId=" + userId;
-}
-
 
     /**
      * Display a list of all transactions for the specified user.

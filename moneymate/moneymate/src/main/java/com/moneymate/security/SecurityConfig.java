@@ -11,12 +11,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf().disable()
-            .headers().frameOptions().disable() // allows H2 console
+            .csrf().disable() // Disable CSRF protection for development/testing
+            .headers().frameOptions().disable() // Enable H2 Console frames
             .and()
             .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll() // allow everything
+                .requestMatchers("/h2-console/**").permitAll() // Allow H2 console
+                .anyRequest().permitAll() // Allow all other requests
             );
+
         return http.build();
     }
 }
