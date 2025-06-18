@@ -54,26 +54,7 @@ body {
     border-radius: 50%;
 }
 
-/* --------------- Power Button Style --------------- */
-.power-btn {
-  background: #eee;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
 
-.power-btn.on {
-  background-color: #27ae60;
-  color: white;
-}
-
-.power-btn.off {
-  background-color: #e74c3c;
-  color: white;
-}
 
 /* -------------------- Headings -------------------- */
 h1,
