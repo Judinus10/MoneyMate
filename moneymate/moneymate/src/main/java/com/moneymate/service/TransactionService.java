@@ -28,7 +28,7 @@ public class TransactionService {
             Transaction existing = existingOpt.get();
             existing.setAmount(updated.getAmount());
             existing.setCategory(updated.getCategory());
-            existing.setDate(updated.getDate());
+            existing.setDateTime(updated.getDateTime());
             existing.setDescription(updated.getDescription());
             existing.setType(updated.getType());
             return transactionRepository.save(existing);

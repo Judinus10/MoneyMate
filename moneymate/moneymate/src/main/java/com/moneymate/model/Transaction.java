@@ -11,7 +11,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;  // Link to user table
+    private Long userId; // Link to user table
 
     private double amount;
 
@@ -19,19 +19,21 @@ public class Transaction {
 
     private String category;
 
-    private LocalDateTime date;
+    private LocalDateTime dateTime;
 
     private String description;
 
     // Constructors
-    public Transaction() {}
+    public Transaction() {
+    }
 
-    public Transaction(Long userId, double amount, String type, String category, LocalDateTime date, String description) {
+    public Transaction(Long userId, double amount, String type, String category, LocalDateTime dateTime,
+            String description) {
         this.userId = userId;
         this.amount = amount;
         this.type = type;
         this.category = category;
-        this.date = date;
+        this.dateTime = dateTime;
         this.description = description;
     }
 
@@ -73,12 +75,12 @@ public class Transaction {
         this.category = category;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public String getDescription() {

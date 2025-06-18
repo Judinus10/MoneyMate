@@ -128,10 +128,18 @@ public class TransactionWebController {
             @RequestParam(value = "userId", required = false, defaultValue = "1") Long userId) {
 
         List<Transaction> transactions = transactionService.getTransactionsByUserId(userId);
+        System.out.println("Fetched transactions for userId: " + userId);
+        System.out.println("Transaction count: " + transactions.size());
+
+        // Check for empty or null list (debug purpose)
+        if (transactions == null || transactions.isEmpty()) {
+            System.out.println("⚠️ No transactions found for userId " + userId);
+        }
+
         model.addAttribute("transactions", transactions);
         model.addAttribute("userId", userId);
 
-        return "transactions-list"; // => templates/transactions-list.html
+        return "transactions/list"; // Make sure the file is located at templates/transactions-list.html
     }
 
     /**
