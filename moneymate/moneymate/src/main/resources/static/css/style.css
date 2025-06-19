@@ -176,13 +176,6 @@ body {
     border-radius: 6px;
 }
 
-/* --------------- Hamburger Menu --------------- */
-.hamburger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
 /* -------------------- Headings -------------------- */
 h1,
 h2 {
