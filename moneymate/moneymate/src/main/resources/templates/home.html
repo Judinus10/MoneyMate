@@ -5,25 +5,21 @@
     <meta charset="UTF-8">
     <title>Luxury Plan Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <nav class="navbar">
-        <div class="logo">MoneyMate</div>
-        <!-- Hamburger Menu (for mobile) -->
-        <div class="hamburger" id="hamburger">&#9776;</div>
-        <ul class="nav-links">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Transactions</a></li>
-            <!-- <li><a href="#">Income</a></li>
-            <li><a href="#">Expenses</a></li> -->
-            <li><a href="#">Reports</a></li>
-        </ul>
-        <!-- Power Icon (Logout toggle) -->
-        <div class="user-actions">
-            <button id="powerToggle" class="power-btn">
-                <i class="fas fa-power-off"></i>
-            </button>
+        <div class="navbar-left">
+            <div class="logo">MoneyMate</div>
+        </div>
+
+        <div class="navbar-right">
+            <img src="https://via.placeholder.com/40" alt="User" class="user-image">
+
+            <button class="icon-btn"><i class="fas fa-search"></i></button>
+            <button class="icon-btn"><i class="fas fa-bell"></i></button>
+            <button class="icon-btn"><i class="fas fa-comment-alt"></i></button>
         </div>
     </nav>
 
