@@ -24,10 +24,14 @@ public class TransactionWebController {
      * Redirect root ("/") to the home page (transactions form).
      */
     @GetMapping({ "/", "/home" })
-    public String home() {
-        return "home"; // looks for templates/home.html
+    public String homePage(Model model) {
+        model.addAttribute("userName", "Sarah");
+        model.addAttribute("balance", "$12,450.00");
+        model.addAttribute("income", "$8,000");
+        model.addAttribute("expenses", "$3,200");
+        return "home";
     }
-
+    
     /**
      * Show the form to add a new transaction.
      */
