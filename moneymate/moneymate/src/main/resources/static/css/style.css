@@ -53,8 +53,7 @@ body {
 }
 
 .icon-btn {
-    all: unset;
-    /* Resets all styles */
+    all: unset;/* Resets all styles */
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -75,6 +74,7 @@ body {
 }
 
 .user-image {
+    /* all: unset; */
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -108,6 +108,25 @@ body {
 .search-input.show {
     width: 150px;
     opacity: 1;
+}
+
+/* --------------- Notification Box --------------- */
+.notification-box {
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-width: 200px;
+    z-index: 10;
+}
+
+.notification-text {
+    color: #999;
+    font-style: italic;
 }
 
 /* --------------- Hamburger Menu --------------- */
