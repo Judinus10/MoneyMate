@@ -21,37 +21,61 @@ body {
     line-height: 1.6;
 }
 
+/* ---------------- Navbar ---------------- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ffffff;
+    background-color: #fff;
     padding: 1rem 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    /* position: sticky; */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-}
-
-.nav-links a:hover {
+/* Left - Logo */
+.navbar-left .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
     color: #7f5af0;
 }
 
-.avatar {
+/* right - Icon Buttons */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-btn {
+    all: unset;
+    /* Resets all styles */
     width: 40px;
+    height: 40px;
     border-radius: 50%;
+    background: #f0f0f0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.icon-btn:hover {
+    background-color: #e0e0ff;
+    color: #7f5af0;
+    box-shadow: 0 2px 6px rgba(127, 90, 240, 0.2);
+}
+
+.user-image {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #7f5af0;
 }
 
 /* --------------- Hamburger Menu --------------- */
@@ -342,57 +366,41 @@ td:last-child {
 /* -------------------- Responsive -------------------- */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-    }
-
-    .hamburger {
-        display: block;
-        margin-left: auto;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 0.5rem;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 0.75rem;
-        width: 100%;
-        border-radius: 8px;
-        transition: background 0.3s;
-    }
-
-    .nav-links a:hover {
-        background-color: #f0f0f0;
-    }
-
-    .user-actions {
-        width: 100%;
-        display: flex;
+        flex-wrap: nowrap;
+        /* Prevent wrapping */
         justify-content: space-between;
-        margin-top: 1rem;
+        padding: 0.75rem 1rem;
     }
 
-    .avatar {
+    .navbar-left,
+    .navbar-right {
+        flex: 0 0 auto;
+        /* Prevent growing/shrinking */
+    }
+
+    .navbar-left .logo {
+        font-size: 1.4rem;
+        /* Slightly smaller logo */
+    }
+
+    .navbar-right {
+        gap: 1rem;
+        /* Slightly reduce gap */
+        flex-wrap: nowrap;
+        /* Keep icons and user image in one line */
+    }
+
+    /* Make sure icon buttons remain circular and small */
+    .icon-btn {
         width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
     }
 
-    .logout-btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
+    .user-image {
+        width: 36px;
+        height: 36px;
+        border-width: 1.5px;
     }
 
     .welcome-text {
