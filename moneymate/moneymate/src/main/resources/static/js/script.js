@@ -28,23 +28,39 @@ updateMaxTime();
 // Update max time when date changes
 dateInput.addEventListener('change', updateMaxTime);
 
-// Hamburger menu toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+// Functions for navbar added
+document.addEventListener("DOMContentLoaded", () => {
+    const searchBtn = document.getElementById("searchBtn");
+    const searchInput = document.getElementById("searchInput");
+    const notifBtn = document.getElementById("notifBtn");
+    const notifBox = document.getElementById("notifBox");
+    const settingsBtn = document.getElementById("settingsBtn");
+    const settingsBox = document.getElementById("settingsBox");
+    const userBtn = document.getElementById("userBtn");
+    const userPanel = document.getElementById("userPanel");
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+    searchBtn.addEventListener("click", () => {
+        searchInput.classList.toggle("show");
+    });
+
+    notifBtn.addEventListener("click", () => {
+        notifBox.classList.toggle("hidden");
+        settingsBox.classList.add("hidden");
+    });
+
+    settingsBtn.addEventListener("click", () => {
+        settingsBox.classList.toggle("hidden");
+        notifBox.classList.add("hidden");
+    });
+
+    userBtn.addEventListener("click", () => {
+        userPanel.classList.toggle("show");
+    });
+
+    // Close user panel when clicking outside
+    window.addEventListener("click", (e) => {
+        if (!userBtn.contains(e.target) && !userPanel.contains(e.target)) {
+            userPanel.classList.remove("show");
+        }
+    });
 });
-
-// Power button toggle
-const powerBtn = document.getElementById('powerToggle');
-let isOn = false;
-
-powerBtn.addEventListener('click', () => {
-  isOn = !isOn;
-  powerBtn.classList.toggle('on', isOn);
-  powerBtn.classList.toggle('off', !isOn);
-});
-
-// Set default state
-powerBtn.classList.add('off');
