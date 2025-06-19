@@ -82,6 +82,34 @@ body {
     border: 2px solid #7f5af0;
 }
 
+/* ---------------Smooth transition search class --------------- */
+.hidden {
+    display: none;
+}
+
+/* Search Input */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.search-input.show {
+    width: 150px;
+    opacity: 1;
+}
+
 /* --------------- Hamburger Menu --------------- */
 .hamburger {
     display: none;
