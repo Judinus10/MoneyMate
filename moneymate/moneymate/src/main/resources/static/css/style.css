@@ -161,6 +161,7 @@ body {
     right: -350px; /* Hidden by default */
     width: 320px;
     height: 100vh;
+    align-items: center;
     background-color: #ffffff;
     box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
     padding: 2rem 1.5rem;
@@ -261,7 +262,7 @@ body {
 
 /* Account Settings */
 .user-panel .account-settings button {
-    width: 100%;
+    width: 80%;
     padding: 0.6rem 1rem;
     margin-bottom: 0.75rem;
     background-color: #7f5af0;
@@ -293,7 +294,7 @@ body {
     border-radius: 999px;
     font-weight: 600;
     cursor: pointer;
-    width: 100%;
+    width: 70%;
     transition: background-color 0.3s ease;
     margin-top: 0.75rem;
 }
@@ -311,7 +312,7 @@ body {
     border-radius: 999px;
     font-weight: 700;
     cursor: pointer;
-    width: 100%;
+    width: 70%;
     margin-top: 2rem;
     transition: background-color 0.3s ease;
     font-size: 1rem;
