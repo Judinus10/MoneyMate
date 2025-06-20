@@ -102,7 +102,8 @@ body {
 .search-input {
     width: 0;
     opacity: 0;
-    transition: width 0.3s ease, opacity 0.3s ease;
+    transition: width 0.6s ease, opacity 0.6s ease, padding 0.6s ease, border 0.6s ease;
+    background-color: #fff;
     padding: 0.4rem 0.6rem;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -126,6 +127,7 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     min-width: 200px;
     z-index: 10;
+    transition: all 0.6s ease;
 }
 
 .notification-text {
@@ -144,6 +146,7 @@ body {
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 10;
+    transition: all 0.6s ease;
 }
 
 .settings-box p {
@@ -160,7 +163,7 @@ body {
     background: #fff;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    transition: right 0.3s ease;
+    transition: right 0.6s ease;
     z-index: 20;
 }
 

@@ -96,3 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        notifBox.classList.remove("show");
+        settingsBox.classList.remove("show");
+        userPanel.classList.remove("show");
+    }
+});
