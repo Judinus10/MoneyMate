@@ -37,10 +37,45 @@
             <div class="settings-wrapper">
                 <button class="icon-btn" id="settingsBtn"><i class="fas fa-gear"></i></button>
                 <div class="settings-box hidden" id="settingsBox">
-                    <p><a href="#">Change Password</a></p>
-                    <p><a href="#">Language</a></p>
-                    <p><a href="#">Logout</a></p>
+                    <ul class="settings-list">
+                        <li class="settings-item toggle">
+                            <label for="theme-toggle">🌙 Dark Mode</label>
+                            <input type="checkbox" id="theme-toggle" name="theme-toggle">
+                        </li>
+
+                        <li class="settings-item toggle">
+                            <label for="email-notify">📧 Email Notifications</label>
+                            <input type="checkbox" id="email-notify" name="email-notify" checked>
+                        </li>
+
+                        <li class="settings-item">
+                            <label for="language">🌐 Language</label>
+                            <select id="language" name="language">
+                                <option value="en" selected>English</option>
+                                <option value="ta">Tamil</option>
+                                <option value="si">Sinhala</option>
+                            </select>
+                        </li>
+
+                        <li class="settings-item">
+                            <label for="timezone">🕒 Timezone</label>
+                            <select id="timezone" name="timezone">
+                                <option value="IST" selected>IST (GMT+5:30)</option>
+                                <option value="UTC">UTC</option>
+                                <option value="EST">EST (GMT-5)</option>
+                            </select>
+                        </li>
+
+                        <li class="settings-item">
+                            <button class="export-btn">📁 Export My Data</button>
+                        </li>
+
+                        <li class="settings-item">
+                            <button class="delete-btn">🗑️ Delete Account</button>
+                        </li>
+                    </ul>
                 </div>
+
             </div>
 
             <!-- User Panel -->
