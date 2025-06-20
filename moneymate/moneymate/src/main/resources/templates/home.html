@@ -45,19 +45,45 @@
 
             <!-- User Panel -->
             <div class="user-wrapper">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User" class="user-image" id="userBtn">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User" class="user-image"
+                    id="userBtn">
                 <div class="user-panel hidden" id="userPanel">
-                    <h3>Edit Profile</h3>
-                    <form>
+                    <div class="profile-picture">
+                        <img src="user-avatar.jpg" alt="User Avatar" />
+                        <button>Change Photo</button>
+                    </div>
+
+                    <form class="user-info-form">
                         <label>Name</label>
-                        <input type="text" value="Sarah" />
+                        <input type="text" value="Sarah Johnson" />
+
                         <label>Email</label>
                         <input type="email" value="sarah@example.com" />
-                        <button type="submit">Update</button>
+
+                        <label>Phone</label>
+                        <input type="tel" value="+1 234 567 890" />
+
+                        <button type="submit">Save Changes</button>
                     </form>
+
+                    <hr />
+
+                    <div class="account-settings">
+                        <button>Change Password</button>
+                        <button>Two-Factor Authentication</button>
+                    </div>
+
+                    <hr />
+
+                    <div class="subscription-info">
+                        <p>Plan: Premium</p>
+                        <p>Renewal Date: 2025-01-01</p>
+                        <button>Upgrade Plan</button>
+                    </div>
+
+                    <button class="logout-btn">Logout</button>
                 </div>
             </div>
-        </div>
     </nav>
 
     <!-- Welcome Section -->
