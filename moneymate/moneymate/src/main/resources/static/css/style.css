@@ -87,6 +87,10 @@ body {
     display: none;
 }
 
+.show {
+    display: block;
+}
+
 /* Search Input */
 .search-wrapper {
     position: relative;
