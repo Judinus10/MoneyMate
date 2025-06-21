@@ -6,6 +6,8 @@
     <title>Luxury Plan Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -167,10 +169,7 @@
                 <span class="amount expense" th:text="${expenses}">$3,200</span>
                 <span class="subtext">Spending This Month</span>
             </div>
-            <div class="graph-placeholder">
-                <!-- Replace with chart component -->
-                [Graph Placeholder]
-            </div>
+            <canvas id="spendingChart" width="400" height="200"></canvas>
         </div>
     </section>
 
