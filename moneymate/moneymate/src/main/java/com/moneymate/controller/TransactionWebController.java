@@ -152,4 +152,12 @@ public class TransactionWebController {
 
         return "redirect:/transactions/list?userId=" + userId;
     }
+
+    // Example data
+    @GetMapping("/dashboard")
+    public String showDashboard(Model model) {
+        List<Integer> spendingData = List.of(200, 450, 700, 1200, 1600, 2100);
+        model.addAttribute("spendingData", spendingData);
+        return "dashboard"; // your html file name (dashboard.html)
+    }
 }
