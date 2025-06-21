@@ -19,8 +19,8 @@
         <div class="navbar-right">
             <!-- Search -->
             <div class="search-wrapper">
-                <button class="icon-btn" id="searchBtn"><i class="fas fa-search"></i></button>
                 <input type="text" id="searchInput" class="search-input hidden" placeholder="Search...">
+                <button class="icon-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
 
             <!-- Notifications -->
@@ -28,8 +28,7 @@
                 <button class="icon-btn" id="notifBtn"><i class="fas fa-bell"></i></button>
                 <div class="notification-box hidden" id="notifBox">
                     <p class="notification-text">No messages</p>
-                    <!-- Use Thymeleaf for real notifications -->
-                    <!-- <ul><li th:each="n : ${notifications}" th:text="${n}"></li></ul> -->
+                    <ul><li th:each="n : ${notifications}" th:text="${n}"></li></ul>
                 </div>
             </div>
 
