@@ -106,34 +106,58 @@ document.addEventListener("keydown", function (e) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById('spendingChart').getContext('2d');
+    const chartToggle = document.getElementById('chartToggle');
+    const toggleLabel = document.getElementById('toggleLabel');
 
-    // If you're passing Thymeleaf data from backend
-    // Example: List<Integer> spendingData = List.of(200, 450, 700, 1200, 1600, 2100);
-    // model.addAttribute("spendingData", spendingData);
+    const monthlyLabels = ['1 Jun', '5 Jun', '10 Jun', '15 Jun', '20 Jun', '25 Jun'];
+    const yearlyLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
 
-    const labels = ['1 Jun', '5 Jun', '10 Jun', '15 Jun', '20 Jun', '25 Jun'];
-    const data = /*[[${spendingData}]]*/[200, 450, 700, 1200, 1600, 2100];
+    const monthlyData = /*[[${monthlyData}]]*/[200, 450, 700, 1200, 1600, 2100];
+    const yearlyData = /*[[${yearlyData}]]*/[1500, 2000, 1700, 2200, 2500, 2700];
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Spending',
-                data: data,
-                fill: true,
-                borderColor: '#7f5af0',
-                backgroundColor: 'rgba(127, 90, 240, 0.1)',
-                tension: 0.3
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
+    let currentChart;
+
+    function renderChart(labels, data) {
+        if (currentChart) currentChart.destroy();
+
+        currentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Spending',
+                    data: data,
+                    fill: true,
+                    borderColor: '#7f5af0',
+                    backgroundColor: 'rgba(127, 90, 240, 0.1)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                animation: {
+                    duration: 800,
+                    easing: 'easeOutQuart'
                 }
             }
+        });
+    }
+
+    // Default chart
+    renderChart(monthlyLabels, monthlyData);
+
+    chartToggle.addEventListener('change', () => {
+        if (chartToggle.checked) {
+            renderChart(yearlyLabels, yearlyData);
+            toggleLabel.textContent = 'Yearly';
+        } else {
+            renderChart(monthlyLabels, monthlyData);
+            toggleLabel.textContent = 'Monthly';
         }
     });
 });

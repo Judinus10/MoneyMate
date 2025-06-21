@@ -31,7 +31,7 @@ public class TransactionWebController {
         model.addAttribute("expenses", "$3,200");
         return "home";
     }
-    
+
     /**
      * Show the form to add a new transaction.
      */
@@ -156,8 +156,10 @@ public class TransactionWebController {
     // Example data
     @GetMapping("/dashboard")
     public String showDashboard(Model model) {
-        List<Integer> spendingData = List.of(200, 450, 700, 1200, 1600, 2100);
-        model.addAttribute("spendingData", spendingData);
-        return "dashboard"; // your html file name (dashboard.html)
+        List<Integer> monthlyData = List.of(200, 450, 700, 1200, 1600, 2100);
+        List<Integer> yearlyData = List.of(1500, 2000, 1700, 2200, 2500, 2700);
+        model.addAttribute("monthlyData", monthlyData);
+        model.addAttribute("yearlyData", yearlyData);
+        return "dashboard";
     }
 }

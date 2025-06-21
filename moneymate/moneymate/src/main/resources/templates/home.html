@@ -30,7 +30,9 @@
                 <button class="icon-btn" id="notifBtn"><i class="fas fa-bell"></i></button>
                 <div class="notification-box hidden" id="notifBox">
                     <p class="notification-text">No messages</p>
-                    <ul><li th:each="n : ${notifications}" th:text="${n}"></li></ul>
+                    <ul>
+                        <li th:each="n : ${notifications}" th:text="${n}"></li>
+                    </ul>
                 </div>
             </div>
 
@@ -163,11 +165,19 @@
 
     <!-- Monthly Spending Section -->
     <section class="spending-section">
-        <h2 class="section-title">Monthly Spending</h2>
+        <h2 class="section-title">Spending Overview</h2>
         <div class="spending-box">
             <div class="spending-header">
                 <span class="amount expense" th:text="${expenses}">$3,200</span>
-                <span class="subtext">Spending This Month</span>
+                <span class="subtext">Spending Overview</span>
+            </div>
+            <!-- Chart Type Toggle -->
+            <div class="chart-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="chartToggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="toggleLabel">Monthly</span>
             </div>
             <canvas id="spendingChart" width="400" height="200"></canvas>
         </div>
