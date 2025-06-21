@@ -103,3 +103,37 @@ document.addEventListener("keydown", function (e) {
         userPanel.classList.remove("show");
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById('spendingChart').getContext('2d');
+
+    // If you're passing Thymeleaf data from backend
+    // Example: List<Integer> spendingData = List.of(200, 450, 700, 1200, 1600, 2100);
+    // model.addAttribute("spendingData", spendingData);
+
+    const labels = ['1 Jun', '5 Jun', '10 Jun', '15 Jun', '20 Jun', '25 Jun'];
+    const data = /*[[${spendingData}]]*/[200, 450, 700, 1200, 1600, 2100];
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Spending',
+                data: data,
+                fill: true,
+                borderColor: '#7f5af0',
+                backgroundColor: 'rgba(127, 90, 240, 0.1)',
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+});
