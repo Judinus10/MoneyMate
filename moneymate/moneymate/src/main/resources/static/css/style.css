@@ -1,7 +1,9 @@
 /* -------------------- Global Reset -------------------- */
-html, body {
+html,
+body {
     width: 100%;
-    overflow-x: hidden; /* 🚫 Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* 🚫 Prevent horizontal scroll */
 }
 
 body,
@@ -53,7 +55,8 @@ body {
 }
 
 .icon-btn {
-    all: unset;/* Resets all styles */
+    all: unset;
+    /* Resets all styles */
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -81,35 +84,39 @@ body {
     object-fit: cover;
     border: 2px solid #7f5af0;
 }
+
 /* ---------------side panel --------------- */
 
 .side-panel {
-  position: fixed;
-  top: 0;
-  right: -350px; /* start hidden off-screen */
-  width: 320px;
-  height: 100vh;
-  background: #fff;
-  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
-  padding: 2rem 1.5rem;
-  overflow-y: auto;
-  transition: right 0.6s ease;
-  z-index: 1500;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed;
+    top: 0;
+    right: -350px;
+    /* start hidden off-screen */
+    width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+    transition: right 0.6s ease;
+    z-index: 1500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .side-panel h3 {
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: #7f5af0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #7f5af0;
 }
 
 .side-panel.hidden {
-  right: -350px; /* hidden */
+    right: -350px;
+    /* hidden */
 }
 
 .side-panel.visible {
-  right: 0; /* visible */
+    right: 0;
+    /* visible */
 }
 
 /* ---------------Smooth transition search class --------------- */
@@ -154,7 +161,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     min-width: 200px;
     z-index: 10;
     transition: all 0.6s ease;
@@ -270,11 +277,13 @@ body {
 .user-panel {
     position: fixed;
     top: 0;
-    right: -350px; /* Hidden by default */
+    right: -350px;
+    /* Hidden by default */
     width: 320px;
     height: 100vh;
-    display: flex;                     /* ➤ Add this */
-    flex-direction: column;  
+    display: flex;
+    /* ➤ Add this */
+    flex-direction: column;
     align-items: center;
     background-color: #ffffff;
     box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
@@ -436,7 +445,7 @@ body {
 }
 
 .logout-btn {
-  margin-bottom: 2rem; 
+    margin-bottom: 2rem;
 }
 
 /* Scrollbar Styling (optional) */
@@ -457,98 +466,110 @@ body {
 
 /* Container: flex to push toggle to right */
 .chart-toggle {
-  display: flex;
-  justify-content: flex-end; /* align toggle button to right */
-  align-items: center;
-  margin: 1rem 0;
-  user-select: none;
-  gap: 10px;
-  margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+    /* align toggle button to right */
+    align-items: center;
+    margin: 1rem 0;
+    user-select: none;
+    gap: 10px;
+    margin-bottom: 30px;
 }
+
+#spendingChart {
+    width: 70%;
+    /* Adjust as needed */
+    height: 300px;
+    /* Fixed height */
+    margin: 0 auto;
+    /* Center if needed */
+}
+
 
 /* Optionally style label on left if used */
 .toggle-label {
-  font-weight: 600;
-  color: #444;
-  font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    font-size: 1rem;
 }
 
 /* Switch outer container */
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 90px; /* wider for text */
-  height: 34px;
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    /* wider for text */
+    height: 34px;
 }
 
 /* Hide default checkbox */
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 /* Slider background + knob container */
 .slider {
-  position: relative;
-  cursor: pointer;
-  background-color: #ccc;
-  border-radius: 34px;
-  height: 100%;
-  transition: background-color 0.4s;
-  display: flex;
-  align-items: center;
-  padding: 0 5px;
-  box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 34px;
+    height: 100%;
+    transition: background-color 0.4s;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    box-sizing: border-box;
 }
 
 /* The knob */
 .slider::before {
-  content: "";
-  position: absolute;
-  height: 26px;
-  width: 42px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  border-radius: 20px;
-  transition: transform 0.4s;
-  z-index: 2;
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 42px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 20px;
+    transition: transform 0.4s;
+    z-index: 2;
 }
 
 /* Text labels inside slider */
 .slider-label {
-  flex: 1;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #7f5af0;
-  z-index: 1;
-  user-select: none;
-  text-align: center;
+    flex: 1;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7f5af0;
+    z-index: 1;
+    user-select: none;
+    text-align: center;
 }
 
 /* Left label */
 .slider-label.left {
-  color: #fff;
+    color: #fff;
 }
 
 /* Right label */
 .slider-label.right {
-  color: #7f5af0;
+    color: #7f5af0;
 }
 
 /* Move knob to the right */
-.switch input:checked + .slider::before {
-  transform: translateX(46px);
+.switch input:checked+.slider::before {
+    transform: translateX(46px);
 }
 
 /* Swap label colors when toggled */
-.switch input:checked + .slider .slider-label.left {
-  color: #7f5af0;
+.switch input:checked+.slider .slider-label.left {
+    color: #7f5af0;
 }
 
-.switch input:checked + .slider .slider-label.right {
-  color: #fff;
+.switch input:checked+.slider .slider-label.right {
+    color: #fff;
 }
 
 
@@ -680,7 +701,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.graph-placeholder {
+/* .graph-placeholder {
     height: 200px;
     background-color: #e5e7eb;
     border-radius: 8px;
@@ -690,7 +711,7 @@ h2 {
     color: #6b7280;
     font-size: 1rem;
     font-style: italic;
-}
+} */
 
 /* -------------------- Forms -------------------- */
 form {
@@ -895,6 +916,18 @@ td:last-child {
         width: 100%;
         padding: 1rem;
     }
+
+    #spendingChart {
+        width: 100%;
+        /* Adjust as needed */
+        max-width: 700px;
+        /* Optional max width */
+        height: 300px;
+        /* Fixed height */
+        margin: 0 auto;
+        /* Center if needed */
+    }
+
 
     table,
     thead,
