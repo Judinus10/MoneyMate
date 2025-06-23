@@ -142,26 +142,31 @@
     <section class="income-expense-section">
 
         <!-- Income -->
-        <div class="card income-card">
-            <div class="card-text">
-                <h2 class="section-title">Income</h2>
-                <p class="amount income" th:text="${income}">$8,000</p>
-                <p class="subtext">This month income</p>
+        <a href="/activityPage" style="text-decoration: none;">
+            <div class="card income-card">
+                <div class="card-text">
+                    <h2 class="section-title">Income</h2>
+                    <p class="amount income" th:text="${income}">$8,000</p>
+                    <p class="subtext">This month income</p>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/1963/1963927.png" alt="Income Icon" class="icon">
             </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/1963/1963927.png" alt="Income Icon" class="icon">
-        </div>
+        </a>
 
         <!-- Expenses -->
-        <div class="card expense-card">
-            <div class="card-text">
-                <h2 class="section-title">Expenses</h2>
-                <p class="amount expense" th:text="${expenses}">$3,200</p>
-                <p class="subtext">This month expenses</p>
+        <a href="/activityPage" style="text-decoration: none;">
+            <div class="card expense-card">
+                <div class="card-text">
+                    <h2 class="section-title">Expenses</h2>
+                    <p class="amount expense" th:text="${expenses}">$3,200</p>
+                    <p class="subtext">This month expenses</p>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Expense Icon" class="icon">
             </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Expense Icon" class="icon">
-        </div>
+        </a>
 
     </section>
+
 
     <!-- Monthly Spending Section -->
     <section class="spending-section">
