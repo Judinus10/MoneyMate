@@ -463,6 +463,7 @@ body {
   margin: 1rem 0;
   user-select: none;
   gap: 10px;
+  margin-bottom: 30px;
 }
 
 /* Optionally style label on left if used */
@@ -534,11 +535,6 @@ body {
 /* Right label */
 .slider-label.right {
   color: #7f5af0;
-}
-
-/* When toggled ON */
-.switch input:checked + .slider {
-  background-color: #7f5af0;
 }
 
 /* Move knob to the right */
