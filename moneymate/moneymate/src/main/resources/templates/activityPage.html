@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Activity Page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <!-- Top Header: Back Arrow + Title -->
+    <div class="activity-header">
+        <a href="#" class="back-arrow">&#8592;</a>
+        <div class="page-title">Cash Flow</div>
+    </div>
+
+    <!-- Section: Activity -->
+    <div class="section-heading">Activity</div>
+
+    <!-- Section: Today -->
+    <div class="section-heading">Today</div>
+    <div th:each="tx : ${todayTransactions}" class="activity-item">
+        <div class="activity-row">
+            <span class="activity-label">Type:</span>
+            <span class="activity-value" th:text="${tx.type}">Income</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Amount:</span>
+            <span class="activity-value" th:text="${tx.amount}">$100.00</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Category:</span>
+            <span class="activity-value" th:text="${tx.category}">Food</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Date & Time:</span>
+            <span class="activity-value" th:text="${#dates.format(tx.dateTime, 'yyyy-MM-dd HH:mm')}">2025-06-18 10:30</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Description:</span>
+            <span class="activity-value" th:text="${tx.description}">Grocery shopping</span>
+        </div>
+    </div>
+
+    <!-- Section: Yesterday -->
+    <div class="section-heading">Yesterday</div>
+    <div th:each="tx : ${yesterdayTransactions}" class="activity-item">
+        <div class="activity-row">
+            <span class="activity-label">Type:</span>
+            <span class="activity-value" th:text="${tx.type}">Expense</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Amount:</span>
+            <span class="activity-value" th:text="${tx.amount}">$20.00</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Category:</span>
+            <span class="activity-value" th:text="${tx.category}">Transport</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Date & Time:</span>
+            <span class="activity-value" th:text="${#dates.format(tx.dateTime, 'yyyy-MM-dd HH:mm')}">2025-06-17 14:15</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Description:</span>
+            <span class="activity-value" th:text="${tx.description}">Bus fare</span>
+        </div>
+    </div>
+
+    <!-- Section: This Month -->
+    <div class="section-heading">This Month</div>
+    <div th:each="tx : ${monthTransactions}" class="activity-item">
+        <div class="activity-row">
+            <span class="activity-label">Type:</span>
+            <span class="activity-value" th:text="${tx.type}">Expense</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Amount:</span>
+            <span class="activity-value" th:text="${tx.amount}">$50.00</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Category:</span>
+            <span class="activity-value" th:text="${tx.category}">Bills</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Date & Time:</span>
+            <span class="activity-value" th:text="${#dates.format(tx.dateTime, 'yyyy-MM-dd HH:mm')}">2025-06-05 09:00</span>
+        </div>
+        <div class="activity-row">
+            <span class="activity-label">Description:</span>
+            <span class="activity-value" th:text="${tx.description}">Electricity bill</span>
+        </div>
+    </div>
+
+</body>
+</html>
