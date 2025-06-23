@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -162,4 +163,48 @@ public class TransactionWebController {
         model.addAttribute("yearlyData", yearlyData);
         return "dashboard";
     }
+
+    // @GetMapping("/activity")
+    // public String showActivityPage(Model model, @RequestParam Long userId) {
+    //     List<Transaction> all = transactionService.getTransactionsByUserId(userId);
+
+    //     LocalDate today = LocalDate.now();
+    //     LocalDate yesterday = today.minusDays(1);
+    //     LocalDate firstDay = today.withDayOfMonth(1);
+
+    //     List<Transaction> todayTx = new ArrayList<>();
+    //     List<Transaction> yesterdayTx = new ArrayList<>();
+    //     List<Transaction> monthTx = new ArrayList<>();
+
+    //     for (Transaction tx : all) {
+    //         LocalDate txDate = tx.getDate().toLocalDate();
+    //         if (txDate.isEqual(today)) {
+    //             todayTx.add(tx);
+    //         } else if (txDate.isEqual(yesterday)) {
+    //             yesterdayTx.add(tx);
+    //         } else if (!txDate.isBefore(firstDay)) {
+    //             monthTx.add(tx);
+    //         }
+    //     }
+
+    //     model.addAttribute("userId", userId);
+    //     model.addAttribute("todayTransactions", todayTx);
+    //     model.addAttribute("yesterdayTransactions", yesterdayTx);
+    //     model.addAttribute("monthTransactions", monthTx);
+
+    //     return "ActivityPage"; // ActivityPage.html
+    // }
+
+    @GetMapping("/activityPage")
+    public String getActivityPage(Model model) {
+        // Add data like today's, yesterday's, monthly activities to the model
+        // Example placeholder:
+        model.addAttribute("userId", 1); // Replace with actual user logic
+        model.addAttribute("activitiesToday", yourService.getTodayActivities());
+        model.addAttribute("activitiesYesterday", yourService.getYesterdayActivities());
+        model.addAttribute("activitiesMonth", yourService.getMonthActivities());
+
+        return "activityPage"; // Refers to templates/activityPage.html
+    }
+
 }
