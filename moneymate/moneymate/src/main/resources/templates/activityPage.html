@@ -2,40 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Activity Page</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Cashflow - Activity</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <header class="activity-header">
+        <a href="javascript:history.back()" class="back-arrow">&#8592; Back</a>
+        <h1 class="page-title">Cashflow</h1>
+    </header>
 
-    <!-- Top Header: Back Arrow + Title -->
-    <div class="activity-header">
-        <a href="#" class="back-arrow">&#8592;</a>
-        <div class="page-title">Cash Flow</div>
-    </div>
+    <!-- Activity Section -->
+    <div class="container">
+        <h2 class="section-heading activity-title">Activity</h2>
 
-    <!-- Section: Activity -->
-    <div class="section-heading">Activity</div>
+        <!-- Today Section -->
+        <div>
+            <h3 class="section-heading">Today</h3>
+            <div class="activity-item" th:each="item : ${todayTransactions}">
+                <div class="activity-row">
+                    <div class="activity-label">
+                        <img src="/assets/icons/payment.svg" alt="icon" width="20" style="vertical-align:middle; margin-right: 10px;">
+                        <span th:text="${item.type}">Payment</span>
+                    </div>
+                    <div class="activity-value" th:text="${item.amount}">+$300.00</div>
+                </div>
+                <div class="activity-row">
+                    <div class="activity-label" th:text="${item.method}">Mastercard</div>
+                    <div class="activity-value" th:text="${item.date}">6-29-2023</div>
+                </div>
+            </div>
+        </div>
 
-    <div>
-        <h3>Today</h3>
-        <div th:each="tx : ${activitiesToday}">
-            <p th:text="${tx.description}"></p>
+        <!-- Spacer -->
+        <div class="activity-spacer"></div>
+
+        <!-- Yesterday Section -->
+        <div>
+            <h3 class="section-heading">Yesterday</h3>
+            <div class="activity-item" th:each="item : ${yesterdayTransactions}">
+                <div class="activity-row">
+                    <div class="activity-label">
+                        <img src="/assets/icons/mobile-order.svg" alt="icon" width="20" style="vertical-align:middle; margin-right: 10px;">
+                        <span th:text="${item.type}">Mobile order</span>
+                    </div>
+                    <div class="activity-value" th:text="${item.amount}">-$4.95</div>
+                </div>
+                <div class="activity-row">
+                    <div class="activity-label" th:text="${item.method}">Mastercard</div>
+                    <div class="activity-value" th:text="${item.date}">6-28-2023</div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div>
-        <h3>Yesterday</h3>
-        <div th:each="tx : ${activitiesYesterday}">
-            <p th:text="${tx.description}"></p>
-        </div>
-    </div>
-
-    <div>
-        <h3>This Month</h3>
-        <div th:each="tx : ${activitiesMonth}">
-            <p th:text="${tx.description}"></p>
-        </div>
-    </div>
-
 </body>
 </html>

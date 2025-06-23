@@ -861,6 +861,112 @@ td:last-child {
 }
 
 /* -------------------- Activity Page -------------------- */
+.activity-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.back-arrow {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #7f5af0;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.back-arrow:hover {
+    color: #5a3bd3;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.section-heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 2rem 2rem 1.2rem 2rem;
+    color: #2d3748;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.section-heading.activity-title {
+    font-size: 2.2rem;
+    color: #1a202c;
+}
+
+.activity-item {
+    background-color: #ffffff;
+    margin: 1rem 2rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.activity-item:hover {
+    transform: translateY(-4px);
+    background-color: #f1f5ff;
+}
+
+.activity-item .activity-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.activity-item .activity-row:last-child {
+    border-bottom: none;
+}
+
+.activity-label {
+    font-weight: 600;
+    color: #4a5568;
+    flex: 1 1 45%;
+    min-width: 140px;
+    font-size: 1rem;
+}
+
+.activity-label img {
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+.activity-value {
+    font-weight: 500;
+    color: #1a202c;
+    flex: 1 1 50%;
+    text-align: right;
+    font-size: 1rem;
+}
+
+.activity-spacer {
+    margin-top: 3rem;
+}
+
+/* -------------------- Activity Page Styles -------------------- */
 
 /* Header Row (Back + Title) */
 .activity-header {
@@ -875,6 +981,7 @@ td:last-child {
     color: #7f5af0;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.2s ease-in-out;
 }
 
 .activity-header .back-arrow:hover {
@@ -882,54 +989,79 @@ td:last-child {
 }
 
 .activity-header .page-title {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 800;
     color: #1f2937;
+    margin-left: auto;
+    /* Push it to the right */
+    text-align: right;
+    /* Align text inside */
 }
 
-/* Section Title (e.g., Activity, Today, Yesterday) */
+/* Section Titles (Activity, Today, Yesterday) */
 .section-heading {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin: 1.5rem 2rem 1rem 2rem;
-    color: #333;
-    border-bottom: 2px solid #e0e0e0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 2rem 2rem 1.2rem 2rem;
+    color: #2d3748;
+    border-bottom: 2px solid #e2e8f0;
     padding-bottom: 0.5rem;
 }
 
-/* Each activity item */
+.section-heading.activity-title {
+    font-size: 2.2rem;
+    color: #1a202c;
+}
+
+/* Activity Cards */
 .activity-item {
-    background-color: #fff;
+    background-color: #ffffff;
     margin: 1rem 2rem;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .activity-item:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    background-color: #f1f5ff;
 }
 
+/* Inside each card */
 .activity-item .activity-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    margin: 0.2rem 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.activity-item .activity-row:last-child {
+    border-bottom: none;
 }
 
 .activity-label {
     font-weight: 600;
-    color: #555;
+    color: #4a5568;
+    flex: 1 1 45%;
+    min-width: 140px;
+    font-size: 1rem;
 }
 
 .activity-value {
-    color: #333;
+    font-weight: 500;
+    color: #1a202c;
+    flex: 1 1 50%;
+    text-align: right;
+    font-size: 1rem;
 }
 
-/* Optional: Add some spacing for clarity */
+/* Spacer between sections */
 .activity-spacer {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 /* -------------------- Responsive -------------------- */
@@ -1045,5 +1177,40 @@ td:last-child {
 
     .error-container {
         padding: 2rem 1rem;
+    }
+
+    .back-arrow {
+        font-size: 2rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        text-align: right;
+    }
+
+    .activity-item {
+        margin: 1rem 1rem;
+        padding: 1rem;
+    }
+
+    .activity-item .activity-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+
+    .activity-label,
+    .activity-value {
+        text-align: left;
+        width: 100%;
+    }
+
+    .section-heading {
+        font-size: 1.3rem;
+        margin: 1rem;
+    }
+
+    .section-heading.activity-title {
+        font-size: 1.8rem;
     }
 }
