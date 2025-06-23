@@ -860,6 +860,78 @@ td:last-child {
     font-size: 1rem;
 }
 
+/* -------------------- Activity Page -------------------- */
+
+/* Header Row (Back + Title) */
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 2rem 1rem 2rem;
+}
+
+.activity-header .back-arrow {
+    font-size: 2rem;
+    color: #7f5af0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.activity-header .back-arrow:hover {
+    color: #5a3bd3;
+}
+
+.activity-header .page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Section Title (e.g., Activity, Today, Yesterday) */
+.section-heading {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1.5rem 2rem 1rem 2rem;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+/* Each activity item */
+.activity-item {
+    background-color: #fff;
+    margin: 1rem 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateY(-3px);
+}
+
+.activity-item .activity-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0.2rem 0;
+}
+
+.activity-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.activity-value {
+    color: #333;
+}
+
+/* Optional: Add some spacing for clarity */
+.activity-spacer {
+    margin-top: 2rem;
+}
+
 /* -------------------- Responsive -------------------- */
 @media (max-width: 768px) {
     .navbar {
