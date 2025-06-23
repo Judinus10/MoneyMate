@@ -681,6 +681,13 @@ h2 {
     height: 60px;
 }
 
+.card:hover {
+    box-shadow: 0 4px 12px rgba(127, 90, 240, 0.2);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+
 /* -------------------- Monthly Spending -------------------- */
 .spending-section {
     margin-bottom: 2.5rem;
