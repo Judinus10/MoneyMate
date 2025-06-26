@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cash - Monthly Spending</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<header class="container" role="banner">
+  <div class="logo" aria-label="Cash Logo">Cash</div>
+  <nav aria-label="Primary navigation">
+    <a th:href="@{/home}">Home</a>
+    <a th:href="@{/cards}">Cards</a>
+    <a th:href="@{/savings}">Savings</a>
+    <a th:href="@{/credit}">Credit</a>
+    <a th:href="@{/investing}">Investing</a>
+    <a th:href="@{/help}" class="highlight" aria-current="page">Help</a>
+  </nav>
+  <div class="header-icons" role="search">
+    <button aria-label="Search">
+      <!-- SVG icons inline for simplicity -->
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" >
+        <circle cx="11" cy="11" r="7" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    </button>
+    <button aria-label="Notifications">
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" >
+        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+      </svg>
+    </button>
+    <button aria-label="Add new item">
+      <svg fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" >
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="container" role="main" aria-label="Monthly Spending Dashboard">
+
+  <section class="main-spending" aria-labelledby="monthly-spending-title">
+    <h2 id="monthly-spending-title">July spending</h2>
+    <p class="summary">You've spent <strong>$7,215</strong> this month</p>
+    <form class="filters" aria-label="Spending filters">
+      <select aria-label="Category filter" name="category" th:value="${category}">
+        <option value="" selected>All Categories</option>
+        <option value="food">Food and dining</option>
+        <option value="auto">Auto and transport</option>
+        <option value="health">Health and fitness</option>
+        <option value="home">Home</option>
+        <option value="shopping">Shopping</option>
+        <option value="travel">Travel</option>
+        <option value="bills">Bills and utilities</option>
+      </select>
+      <select aria-label="Time filter" name="timeframe" th:value="${timeframe}">
+        <option value="this_month" selected>This Month</option>
+        <option value="last_month">Last Month</option>
+        <option value="this_year">This Year</option>
+      </select>
+      <select aria-label="Date filter" name="date" th:value="${date}">
+        <option value="jul_2023" selected>July 2023</option>
+        <option value="jun_2023">June 2023</option>
+        <option value="may_2023">May 2023</option>
+      </select>
+    </form>
+
+    <div class="category-bars" aria-label="Spending category breakdown">
+      <div class="category-bar" th:each="cat : ${categories}">
+        <span class="category-name" th:text="${cat.name}">Category Name</span>
+        <div class="progress-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="100" th:attr="aria-valuenow=${cat.progress}" th:ariaLabel="${cat.name} + ' spending proportion'">
+          <div class="progress-fill" th:style="'width:' + ${cat.progress} + '%; background-color:#555;'"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spending-breakdown" aria-labelledby="spending-breakdown-title">
+    <h2 id="spending-breakdown-title">Spending breakdown</h2>
+    <ul class="category-list">
+      <li class="category-item" tabindex="0" role="button" aria-label="All Categories settings" th:onclick="|location.href='@{/categories/settings}'|">
+        <div class="cat-left">
+          <div class="cat-icon gear" aria-hidden="true" title="Settings">
+            <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <div class="cat-info">
+            <span class="cat-name">All Categories</span>
+            <span class="cat-date">Jul 1 - Jul 31</span>
+          </div>
+        </div>
+        <div class="cat-arrow" aria-hidden="true">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="16" height="16">
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
+        </div>
+      </li>
+
+      <li class="category-item" tabindex="0" role="button" th:each="cat : ${categories}" th:ariaLabel="${cat.name} + ' details'" th:onclick="|location.href='@{/category/' + ${cat.id}}'|">
+        <div class="cat-left">
+          <div class="cat-icon" th:utext="${cat.icon}" aria-hidden="true" th:title="${cat.name}"></div>
+          <div class="cat-info">
+            <span class="cat-name" th:text="${cat.name}">Category Name</span>
+            <span class="cat-date">Jul 1 - Jul 31</span>
+          </div>
+        </div>
+        <div class="cat-arrow" aria-hidden="true">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="16" height="16">
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+</main>
+</body>
+</html>
