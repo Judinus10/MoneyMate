@@ -35,7 +35,7 @@ body {
     background-color: #fff;
     padding: 1rem 2rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    position: sticky;
+    position:sticky;
     top: 0;
     z-index: 100;
 }
@@ -654,7 +654,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     flex: 1;
-    min-width: 280px;
+    min-width: 660px;
 }
 
 .card-text .amount {
@@ -707,18 +707,6 @@ h2 {
     align-items: center;
     margin-bottom: 1rem;
 }
-
-/* .graph-placeholder {
-    height: 200px;
-    background-color: #e5e7eb;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b7280;
-    font-size: 1rem;
-    font-style: italic;
-} */
 
 /* -------------------- Forms -------------------- */
 form {
@@ -1117,6 +1105,7 @@ td:last-child {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        min-width: 280px;
     }
 
     .card-text {
