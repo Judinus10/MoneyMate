@@ -794,32 +794,6 @@ button:active {
     background-color: #c0392b;
 }
 
-/* -------------------- Table -------------------- */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-th,
-td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-th {
-    background: #f0f0f0;
-    font-weight: bold;
-}
-
-td:last-child {
-    text-align: center;
-}
-
 /* -------------------- Error Page -------------------- */
 .error-container {
     background: #fff;
@@ -1126,34 +1100,6 @@ td:last-child {
         /* Fixed height */
         margin: 0 auto;
         /* Center if needed */
-    }
-
-
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
-
-    tr {
-        margin-bottom: 1rem;
-    }
-
-    td {
-        padding: 0.5rem;
-        text-align: right;
-        position: relative;
-    }
-
-    td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        font-weight: bold;
-        text-transform: capitalize;
     }
 
     .error-container h1 {
