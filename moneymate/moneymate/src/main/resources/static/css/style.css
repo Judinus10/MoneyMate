@@ -708,7 +708,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* -------------------- Forms -------------------- */
+/* -------------------- Transaction -------------------- */
 form {
     background: #fff;
     padding: 2rem;
@@ -928,38 +928,6 @@ button:active {
     margin-top: 3rem;
 }
 
-/* -------------------- Activity Page Styles -------------------- */
-
-/* Header Row (Back + Title) */
-.activity-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1.5rem 2rem 1rem 2rem;
-}
-
-.activity-header .back-arrow {
-    font-size: 2rem;
-    color: #7f5af0;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-}
-
-.activity-header .back-arrow:hover {
-    color: #5a3bd3;
-}
-
-.activity-header .page-title {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #1f2937;
-    margin-left: auto;
-    /* Push it to the right */
-    text-align: right;
-    /* Align text inside */
-}
-
 /* Section Titles (Activity, Today, Yesterday) */
 .section-heading {
     font-size: 1.6rem;
@@ -1086,10 +1054,10 @@ button:active {
         margin-bottom: 1rem;
     }
 
-    form {
+    /* form {
         width: 100%;
         padding: 1rem;
-    }
+    } */
 
     #spendingChart {
         width: 100%;
